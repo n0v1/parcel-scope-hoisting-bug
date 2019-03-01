@@ -77,4 +77,20 @@ Original error from babel parser:
 ```
 
 * now rename `App.vue` to `App123.vue` and change the import in `src/js/index.js`
-* now run `npm run prod:hoist` again, which should work now (why?), visit [http://127.0.0.1:4321](http://127.0.0.1:4321/): errors in console and icon is not displayed
+* run `npm run prod:hoist` again, which should work now (why?), visit [http://127.0.0.1:4321](http://127.0.0.1:4321/): errors in console and icon is not displayed
+
+Error in console:
+
+```bash
+js.92b74b4f.js:1 ReferenceError: $rLiX$$interop$default is not defined
+    at i.data (js.92b74b4f.js:1)
+    at Ad (js.92b74b4f.js:1)
+    at zd (js.92b74b4f.js:1)
+    at xd (js.92b74b4f.js:1)
+    at i.Ld.e._init (js.92b74b4f.js:1)
+    at new i (js.92b74b4f.js:1)
+    at je (js.92b74b4f.js:1)
+    at init (js.92b74b4f.js:1)
+    at js.92b74b4f.js:1
+    at o (js.92b74b4f.js:1)
+```
