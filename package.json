@@ -1,0 +1,27 @@
+{
+  "name": "parcel-scope-hoisting-bug",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,vue}\"",
+    "dev": "rimraf dist/ && parcel serve src/index.html",
+    "prod": "rimraf dist/ && parcel build --no-cache src/index.html && http-server dist/ -p 4321 -c -1",
+    "prod:hoist": "rimraf dist/ && parcel build --no-cache --experimental-scope-hoisting src/index.html && http-server dist/ -p 4321 -c -1"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.runtime.esm.js"
+  },
+  "dependencies": {
+    "material-design-icons": "^3.0.1",
+    "vue": "^2.6.7"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "eslint": "^5.14.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "http-server": "^0.11.1",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-inlinesvg": "^0.1.0",
+    "rimraf": "^2.6.3",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "^2.6.7"
+  }
+}
