@@ -1,5 +1,9 @@
 # For debugging Parcel --experimental-scope-hoisting bug
 
+Update March 01 2019: The variable naming bug is fixed by [pull request 2681](https://github.com/parcel-bundler/parcel/pull/2681). The next release should contain the fix.
+
+---
+
 ## Usage
 
 * Install dependencies by running `npm install`.
