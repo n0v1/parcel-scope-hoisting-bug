@@ -52,7 +52,29 @@ var staticRenderFns = []
       
 ```
 
-The variable name `$TC+2$exports` is not valid because of the + sign in it.
+The variable name `$TC+2$exports` is not valid (because of the + sign or + sign followed by a number?).
 
-* rename `App.vue` to `App123.vue` and change the import in `src/js/index.js`
+Original error from babel parser:
+
+```bash
+�  Identifier directly after number (2:21)
+    at Parser.raise (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:3831:17)
+    at Parser.readNumber (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:4725:12)
+    at Parser.getTokenFromCode (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:4459:14)
+    at Parser.nextToken (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:4034:12)
+    at Parser.next (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:3974:10)
+    at Parser.parseMaybeUnary (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:5818:12)
+    at Parser.parseExprOps (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:5729:23)
+    at Parser.parseMaybeConditional (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:5702:23)
+    at Parser.parseMaybeAssign (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:5647:21)
+    at Parser.parseExpression (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:5595:23)
+    at Parser.parseStatementContent (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:7378:23)
+    at Parser.parseStatement (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:7243:17)
+    at Parser.parseBlockOrModuleBlockBody (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:7819:25)
+    at Parser.parseBlockBody (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:7806:10)
+    at Parser.parseTopLevel (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:7181:10)
+    at Parser.parse (/c/_devel/git/parcel-scope-hoisting-bug/node_modules/@babel/parser/lib/index.js:8669:17)
+```
+
+* now rename `App.vue` to `App123.vue` and change the import in `src/js/index.js`
 * now run `npm run prod:hoist` again, which should work now (why?), visit [http://127.0.0.1:4321](http://127.0.0.1:4321/): errors in console and icon is not displayed
