@@ -4,7 +4,9 @@
     "lint": "eslint \"src/**/*.{js,vue}\"",
     "dev": "rimraf dist/ && parcel serve src/index.html",
     "prod": "rimraf dist/ && parcel build --no-cache src/index.html && http-server dist/ -p 4321 -c -1",
-    "prod:hoist": "rimraf dist/ && parcel build --no-cache --experimental-scope-hoisting src/index.html && http-server dist/ -p 4321 -c -1"
+    "prod:hoist": "rimraf dist/ && parcel build --no-cache --experimental-scope-hoisting src/index.html && http-server dist/ -p 4321 -c -1",
+    "prod:nomin": "rimraf dist/ && parcel build --no-cache --no-minify src/index.html && http-server dist/ -p 4321 -c -1",
+    "prod:nomin:hoist": "rimraf dist/ && parcel build --no-cache --no-minify --experimental-scope-hoisting src/index.html && http-server dist/ -p 4321 -c -1"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.runtime.esm.js"
